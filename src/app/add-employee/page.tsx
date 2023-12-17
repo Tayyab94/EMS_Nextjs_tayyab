@@ -136,23 +136,24 @@ const AddEmployee = () => {
                         Truncated Name: {employeeName.slice(0, 25)}...
                     </p>
                 )}
+
+                <input type="text" className='border border-slate-300 px-8 py-3' value={uploadStatus} placeholder='Employee Age' />
+
                 <button className='bg-green-400 text-white font-bold py-3 px-6 w-fit'>Add Employee</button>
 
             </form>
 
 
-            <form onSubmit={handleFileUpload} className='flex flex-col gap-3'>
+            {/* <form onSubmit={handleFileUpload} className='flex flex-col gap-3'>
 
 
-                {/* <input type="file" name="image" className='border border-slate-300 px-8 py-3'
-                    placeholder='Employee Name' onChange={(s) => setFile(s.target.files?.[0] || "")} /> */}
-
-
-                <input type="text" className='border border-slate-300 px-8 py-3' value={uploadStatus} placeholder='Employee Age' />
+                <input type="file" name="image" className='border border-slate-300 px-8 py-3'
+                    placeholder='Employee Name' onChange={(s) => setFile(s.target.files?.[0] || "")} /> 
 
                 <button className='bg-green-400 text-white font-bold py-3 px-6 w-fit'>Upload File</button>
-                {/* <button className='bg-green-400 text-white font-bold py-3 px-6 w-fit'>Add Employee</button> */}
+                <button className='bg-green-400 text-white font-bold py-3 px-6 w-fit'>Add Employee</button> 
             </form>
+             */}
         </>
     )
 }
