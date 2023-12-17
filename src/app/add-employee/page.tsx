@@ -31,11 +31,6 @@ const AddEmployee = () => {
         setEmployeeAge(event.target.value);
     };
 
-    // const handleFileChange = (event: any) => {
-    //     // Handle file input logic here
-    //     // For example: setFile(event.target.files[0]);
-    // };
-
     const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
         const selectedFile = e.target.files?.[0];
 
@@ -58,34 +53,6 @@ const AddEmployee = () => {
         }
         update();
     }, [file])
-
-    const handleFileUpload = async (e: FormEvent<HTMLFormElement>) => {
-
-        e.preventDefault();
-        // if (!file) return;
-        if (!file) return;
-
-
-        const formData = new FormData();
-
-        formData.set('image', file);
-
-
-        const response = await fetch('/api/upload', {
-
-            method: 'POST',
-            body: formData
-        });
-
-        const result = await response.json();
-
-        setUploadStatus(result.filePath)
-
-    };
-
-
-
-
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
@@ -143,17 +110,6 @@ const AddEmployee = () => {
 
             </form>
 
-
-            {/* <form onSubmit={handleFileUpload} className='flex flex-col gap-3'>
-
-
-                <input type="file" name="image" className='border border-slate-300 px-8 py-3'
-                    placeholder='Employee Name' onChange={(s) => setFile(s.target.files?.[0] || "")} /> 
-
-                <button className='bg-green-400 text-white font-bold py-3 px-6 w-fit'>Upload File</button>
-                <button className='bg-green-400 text-white font-bold py-3 px-6 w-fit'>Add Employee</button> 
-            </form>
-             */}
         </>
     )
 }
