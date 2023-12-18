@@ -1,9 +1,16 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import connectMongoDB from "../../../../../libs/mongodb"
 import Employee from "../../../../models/employee"
+import { NextApiRequest } from "next";
 
 
-export async function PUT(request, { params }) {
+
+interface Params {
+    id: string;
+    // Add other properties if needed
+}
+
+export async function PUT(request: NextRequest, { params }: { params: Params }) {
     const { id } = params;
 
     const { employeeName, employeeSalary, employeeAge } = await request.json();
@@ -21,7 +28,7 @@ export async function PUT(request, { params }) {
 }
 
 
-export async function GET(request, { params }) {
+export async function GET(request: NextRequest, { params }: { params: Params }) {
     const { id } = params;
 
     await connectMongoDB();
