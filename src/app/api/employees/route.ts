@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import connectMongoDB from "../../../../libs/mongodb";
 import Employee from "../../../models/employee";
-import { NextApiRequest } from "next";
 
 export async function POST(request: NextRequest) {
 

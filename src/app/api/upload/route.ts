@@ -48,7 +48,6 @@ export async function POST(request: NextRequest) {
 
     if (!file) {
         return NextResponse.json({ success: false });
-
     }
 
     const bytes = await file.arrayBuffer();
@@ -70,3 +69,5 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true, filePath: fileUrl });
 
 }
+
+
